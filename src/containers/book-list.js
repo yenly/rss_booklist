@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'; // pull just a single property
 
-export default class BookList extends Component {
+class BookList extends Component {
   renderList() {
     return this.props.books.map((book) => {
-      <li key={book.title} className="list-group-itme">
+      <li key={book.title} className="list-group-item">
         {book.title}
       </li>
     });
@@ -17,3 +18,12 @@ export default class BookList extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  // whatever is returned will show up as props inside BookList
+  return {
+    books: state.books
+  };
+}
+
+export default connect(mapStateToProps)(BookList);
