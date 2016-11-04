@@ -4,9 +4,11 @@ import { connect } from 'react-redux'; // pull just a single property
 class BookList extends Component {
   renderList() {
     return this.props.books.map((book) => {
-      <li key={book.title} className="list-group-item">
-        {book.title}
-      </li>
+      return (
+        <li key={book.title} className="list-group-item">
+          {book.title}
+        </li>
+      );
     });
   }
 
